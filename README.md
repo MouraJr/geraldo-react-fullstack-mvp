@@ -8,4 +8,5 @@ ReactJS, MaterialUI, Charts js
 
 ### API data
 
-[https://teleport.org/](https://api.teleport.org/api/) for more information.
+[Teleport API](https://api.teleport.org/api/) for more information.
+[Teleport Website](https://teleport.org/) for more information.
