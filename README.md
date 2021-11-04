@@ -4,7 +4,7 @@ This App will allow users to get quality of life in different cities.
 
 ## Technologies Used
 
-ReactJS, MaterialUI, Charts js
+ReactJS, MaterialUI, Charts JS, CountUp JS Axios.
 
 ### API data
 
