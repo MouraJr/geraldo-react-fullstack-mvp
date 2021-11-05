@@ -8,6 +8,8 @@ import styles from './App.module.css'
 
 import { fetchData } from './api'
 
+// import someImage from './img/img.png 
+
 class App extends React.Component {
     state = {
         data: {},
@@ -23,20 +25,20 @@ class App extends React.Component {
     handleCountryChange = async (country) => {
         // fetch data
         const fetchedData = await fetchData(country);
-        console.log(fetchedData)
 
         // set the state
         this.setState({ data: fetchedData, country: country })
     }
 
     render() {
-        const { data } = this.state;
+        const { data, country } = this.state;
 
         return (
             <div className={styles.container}>
+                {/* <img src={someImg} alt="some image"/> */}
                 <Cards data={data} />
                 <CityPicker handleCountryChange={this.handleCountryChange} />
-                <Chart />
+                <Chart data={data} country={country} />
             </div>
         )
     }
