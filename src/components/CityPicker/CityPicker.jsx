@@ -6,24 +6,26 @@ import { fetchCountries } from '../../api'
 import styles from './CityPicker.module.css'
 
 const CityPicker = () => {
-    const [fetchedCountries, setFethedCountries] = useState([])
+    const [fetchedCountries, setFetchedCountries] = useState([])
 
     useEffect(() => {
         const fetchAPI = async () => {
-            setFethedCountries(await fetchCountries)
+            setFetchedCountries(await fetchCountries())
         }
 
         fetchAPI()
-    }, [setFethedCountries])
+    }, [setFetchedCountries])
 
     return (
-        <FormControl>
-            <NativeSelect className={styles.FormControl}>
-                <option value="global">Global</option>
-                {fetchedCountries.map((country, i) =>
-                    <option value={country} key={i}>{country}</option>)}
-            </NativeSelect>
-        </FormControl>
+        <div className={styles.container}>
+            <FormControl className={styles.FormControl}>
+                <NativeSelect>
+                    <option value="global">Global</option>
+                    {fetchedCountries.map((country, i) =>
+                        <option key={i} value={country}>{country}</option>)}
+                </NativeSelect>
+            </FormControl>
+        </div>
     )
 }
 
