@@ -1,44 +1,30 @@
 import axios from 'axios';
 
-const url = 'https://covid19.mathdro.id/api';
+const url = 'https://api.teleport.org/api/urban_areas/';
 
-export const fetchData = async (country) => {
-    let changeableUrl = url;
+export const fetchData = async (city) => {
+    let scoresUrl = `${url}slug:aarhus/scores/`;
 
-    if (country) {
-        changeableUrl = `${url}/countries/${country}`
+    if (city) {
+        scoresUrl = `${url}slug:${city.toLowerCase()}/scores/`
     }
 
     try {
-        const { data: { confirmed, recovered, deaths, lastUpdate } } = await axios.get(changeableUrl)
+        const { data } = await axios.get(scoresUrl)
 
-        return { confirmed, recovered, deaths, lastUpdate }
+        return data
     } catch (error) {
         console.error(`Woops fetch: ${error}`)
     }
 }
 
-export const fetchDailyData = async () => {
+export const fetchCities = async () => {
     try {
-        const { data } = await axios.get(`${url}/daily`);
+        const { data } = await axios.get(`${url}`)
 
-        const modifiedData = data.map((dailyData) => ({
-            confirmed: dailyData.confirmed.total,
-            deaths: dailyData.deaths.total,
-            date: dailyData.reportDate,
-        }))
+        let citiesList = data._links['ua:item']
 
-        return modifiedData
-    } catch (error) {
-        console.error('Woops!')
-    }
-}
-
-export const fetchCountries = async () => {
-    try {
-        const { data: { countries } } = await axios.get(`${url}/countries`)
-
-        return countries.map((country) => country.name)
+        return citiesList.map((city) => city.name)
     } catch (error) {
         console.error('Something is wrong!')
     }

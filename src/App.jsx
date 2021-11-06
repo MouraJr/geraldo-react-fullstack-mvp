@@ -1,7 +1,7 @@
 import React from "react";
 
 import Cards from './components/Cards/Cards'
-import Chart from './components/Chart/Chart'
+// import Chart from './components/Chart/Chart'
 import CityPicker from './components/CityPicker/CityPicker'
 
 import styles from './App.module.css'
@@ -13,32 +13,32 @@ import { fetchData } from './api'
 class App extends React.Component {
     state = {
         data: {},
-        country: '',
+        city: 'Aarhus',
     }
 
     async componentDidMount() {
-        const fetchedData = await fetchData();
+        const data = await fetchData();
 
-        this.setState({ data: fetchedData })
+        this.setState({ data })
     }
 
-    handleCountryChange = async (country) => {
+    handleCityChange = async (city) => {
         // fetch data
-        const fetchedData = await fetchData(country);
+        const data = await fetchData(city);
 
         // set the state
-        this.setState({ data: fetchedData, country: country })
+        this.setState({ data, city: city })
     }
 
     render() {
-        const { data, country } = this.state;
+        const { data, city } = this.state;
 
         return (
             <div className={styles.container}>
                 {/* <img src={someImg} alt="some image"/> */}
-                <Cards data={data} />
-                <CityPicker handleCountryChange={this.handleCountryChange} />
-                <Chart data={data} country={country} />
+                <CityPicker handleCityChange={this.handleCityChange} />
+                <Cards data={data} city={city} />
+                {/* <Chart data={data} country={country} /> */}
             </div>
         )
     }
