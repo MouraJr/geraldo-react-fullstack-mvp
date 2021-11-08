@@ -1,4 +1,9 @@
 .container {
-  margin: 2em auto;
-  width: 30vw;
+  display: flex;
+  margin: 3em auto;
+  width: 80vw;
+}
+
+.formControl {
+  justify-content: center;
 }
