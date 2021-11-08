@@ -8,10 +8,10 @@ const Cards = ({ data: { categories, teleport_city_score }, city }) => {
 
     return (
         <div className={styles.container}>
-            <Grid container spacing={3} justify="center">
-                <Grid item component={Card} xs={12} md={8} className={cx(styles.card, styles.borderBottom)}>
+            <Grid container justify="center">
+                <Grid item component={Card} xs={10} md={8} className={cx(styles.card, styles.borderBottom)}>
                     <CardContent>
-                        <Typography variant="h5" gutterBottom>
+                        <Typography variant="h5" align="center" gutterBottom>
                             {city} City Scores
                         </Typography>
                         <Typography variant="body1">Overall Score</Typography>

@@ -1,9 +1,5 @@
 .container {
-  margin: 50px 0;
-}
-
-.card {
-  margin: 1% 5% !important;
+  margin: 2em auto !important;
 }
 
 .scores {

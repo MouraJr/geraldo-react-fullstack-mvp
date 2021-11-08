@@ -1,5 +1,6 @@
 import React from "react";
 
+import Navbar from "./components/Navbar/Navbar";
 import Cards from './components/Cards/Cards'
 // import Chart from './components/Chart/Chart'
 import CityPicker from './components/CityPicker/CityPicker'
@@ -36,6 +37,7 @@ class App extends React.Component {
         return (
             <div className={styles.container}>
                 {/* <img src={someImg} alt="some image"/> */}
+                <Navbar />
                 <CityPicker handleCityChange={this.handleCityChange} />
                 <Cards data={data} city={city} />
                 {/* <Chart data={data} country={country} /> */}
