@@ -40,7 +40,6 @@ class App extends React.Component {
                 <Navbar />
                 <CityPicker handleCityChange={this.handleCityChange} />
                 <Cards data={data} city={city} />
-                {/* <Chart data={data} country={country} /> */}
             </div>
         )
     }
