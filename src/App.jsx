@@ -1,8 +1,7 @@
-import React from "react";
+import React from 'react'
 
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from './components/Navbar/Navbar'
 import Cards from './components/Cards/Cards'
-// import Chart from './components/Chart/Chart'
 import CityPicker from './components/CityPicker/CityPicker'
 
 import styles from './App.module.css'
