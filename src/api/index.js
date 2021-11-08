@@ -6,7 +6,7 @@ export const fetchData = async (city) => {
     let scoresUrl = `${url}slug:aarhus/scores/`;
 
     if (city) {
-        scoresUrl = `${url}slug:${city.toLowerCase()}/scores/`
+        scoresUrl = `${url}slug:${city.replace('.', '').toLowerCase().replace(',', '').split(" ").join('-')}/scores/`
     }
 
     try {

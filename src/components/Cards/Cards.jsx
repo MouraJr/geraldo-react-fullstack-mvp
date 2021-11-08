@@ -11,20 +11,20 @@ const Cards = ({ data: { categories, teleport_city_score }, city }) => {
             <Grid container spacing={3} justify="center">
                 <Grid item component={Card} xs={12} md={8} className={cx(styles.card, styles.borderBottom)}>
                     <CardContent>
-                        <Typography variant="h4" gutterBottom>
+                        <Typography variant="h5" gutterBottom>
                             {city} City Scores
                         </Typography>
-                        <Typography variant="h5">Overall Score</Typography>
-                        <Typography variant="h5">
+                        <Typography variant="body1">Overall Score</Typography>
+                        <Typography variant="body1">
                             <CountUp start={0} end={teleport_city_score} duration={2.5} separator="," />
                         </Typography>
                         {categories ? categories.map((eachItem) =>
                             <div className={styles.scores}>
-                                <Typography variant="h5">
+                                <Typography variant="body1">
                                     {eachItem.name} Score
                                 </Typography>
-                                <Typography variant="h5">
-                                    <CountUp start={0} end={eachItem.score_out_of_10} duration={2.5} separator="," />
+                                <Typography variant="body1">
+                                    <CountUp start={0} end={eachItem.score_out_of_10} duration={2.5} separator="," /> out of 10
                                 </Typography>
                             </div>
                         ) : null}
